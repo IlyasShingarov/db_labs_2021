@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  nifi:
+    image: apache/nifi:latest
+    container_name: nifi
+    environment:
+      - NIFI_WEB_HTTP_PORT=8080
+    volumes:
+      - ./src/lab8:/opt/nifi/nifi-current/userdata
+    ports:
+      - 8080:8080
+
+  db:
+    build:
+      context: .
+      dockerfile: Dockerfile.db
+    container_name: bmstupostgres
+    env_file:
+      - .env
+    volumes:
+      - ./data/db:/var/lib/postgresql/data/
+      - ./dbdata:/dbdata
+      - ./queries:/queries
+    ports:
+      - "5432:5432"
