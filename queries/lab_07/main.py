@@ -16,10 +16,23 @@ meta = MetaData()
 meta.reflect(bind=engine, schema='public')
 
 class Product:
-    pass
+    def __init__(self, name, price, weight, manufacturer, barcode):
+        self.name = name
+        self.price = price
+        self.weight = weight
+        self.manufacturer = manufacturer
+        self.barcode = barcode
 
 class Material:
-    pass
+    def __init__(self, name, type, is_compostable, is_recyclable, saved_energy, saved_water, composting_time):
+        self.name = name
+        self.type = type
+        self.is_compostable = is_compostable
+        self.is_recyclable = is_recyclable
+        self.saved_energy = saved_energy
+        self.saved_water = saved_water
+        self.composting_time = composting_time
+        
 
 class Center:
     pass

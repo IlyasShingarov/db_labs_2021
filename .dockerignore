@@ -1,0 +1,8 @@
+# Database data
+data/db
+
+# Data to parse
+dbdata/
+
+# Labs' queries
+queries/
